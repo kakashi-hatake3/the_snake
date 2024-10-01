@@ -43,16 +43,19 @@ clock = pygame.time.Clock()
 class GameObject:
     """Родительский класс для всех игровых объектов."""
     def __init__(self, position=(), body_color=()):
+        """Инициализация объекта."""
         self.position = position
         self.body_color = body_color
 
     def draw(self):
+        """Метод отрисовки объекта."""
         pass
 
 
 class Snake(GameObject):
     """Класс змейки."""
     def __init__(self, position: tuple = (), body_color: tuple = ()):
+        """Инициализация змейки."""
         super().__init__(position, body_color)
         self.position = ((GRID_WIDTH // 2) * GRID_SIZE,
                          (GRID_HEIGHT // 2) * GRID_SIZE)
@@ -136,7 +139,6 @@ class Snake(GameObject):
             last_rect = pygame.Rect(self.last, (GRID_SIZE, GRID_SIZE))
             pygame.draw.rect(screen, BOARD_BACKGROUND_COLOR, last_rect)
 
-
     def reset(self):
         """Сбрасывает настройки змеи после проигрыша."""
         self.position = ((GRID_WIDTH // 2) * GRID_SIZE,
@@ -152,6 +154,7 @@ class Snake(GameObject):
 class Apple(GameObject):
     """Класс яблока."""
     def __init__(self, position: tuple = (), body_color: tuple = ()):
+        """Инициализация яблока."""
         super().__init__(position, body_color)
         self.body_color = APPLE_COLOR
         self.randomize_position()
@@ -187,6 +190,7 @@ def handle_keys(game_object):
 
 
 def main():
+    """Основная функция."""
     # Инициализация PyGame:
     pygame.init()
     # Тут нужно создать экземпляры классов.
