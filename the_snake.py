@@ -42,6 +42,7 @@ clock = pygame.time.Clock()
 # Тут опишите все классы игры.
 class GameObject:
     """Родительский класс для всех игровых объектов."""
+
     def __init__(self, position=(), body_color=()):
         """Инициализация объекта."""
         self.position = position
@@ -54,6 +55,7 @@ class GameObject:
 
 class Snake(GameObject):
     """Класс змейки."""
+
     def __init__(self, position: tuple = (), body_color: tuple = ()):
         """Инициализация змейки."""
         super().__init__(position, body_color)
@@ -105,8 +107,11 @@ class Snake(GameObject):
 
     def is_snake_out_of_field(self):
         """Метод проверки выхода змейки за границы поля."""
-        return not (0 <= self.get_head_position()[0] < SCREEN_WIDTH and
-                    0 <= self.get_head_position()[1] < SCREEN_HEIGHT)
+        return not (0 <=
+                    self.get_head_position()[0] <
+                    SCREEN_WIDTH and 0 <=
+                    self.get_head_position()[1] <
+                    SCREEN_HEIGHT)
 
     def touch_apple(self, apple: "Apple"):
         """Метод столкновения змейки с яблоком."""
@@ -153,6 +158,7 @@ class Snake(GameObject):
 
 class Apple(GameObject):
     """Класс яблока."""
+
     def __init__(self, position: tuple = (), body_color: tuple = ()):
         """Инициализация яблока."""
         super().__init__(position, body_color)
