@@ -1,4 +1,4 @@
-from random import choice, randint
+from random import randint
 
 import pygame
 
@@ -54,7 +54,8 @@ class Snake(GameObject):
     """Класс змейки."""
     def __init__(self, position: tuple = (), body_color: tuple = ()):
         super().__init__(position, body_color)
-        self.position = ((GRID_WIDTH // 2) * GRID_SIZE, (GRID_HEIGHT // 2) * GRID_SIZE)
+        self.position = ((GRID_WIDTH // 2) * GRID_SIZE,
+                         (GRID_HEIGHT // 2) * GRID_SIZE)
         self.body_color = SNAKE_COLOR
         self.direction = RIGHT
         self.positions = [self.position]
@@ -78,9 +79,11 @@ class Snake(GameObject):
             elif self.direction == DOWN:
                 self.positions[0] = (self.positions[0][0], 0)
             elif self.direction == LEFT:
-                self.positions[0] = (SCREEN_WIDTH - GRID_SIZE, self.positions[0][1])
+                self.positions[0] = (SCREEN_WIDTH - GRID_SIZE,
+                                     self.positions[0][1])
             elif self.direction == UP:
-                self.positions[0] = (self.positions[0][0], SCREEN_HEIGHT - GRID_SIZE)
+                self.positions[0] = (self.positions[0][0],
+                                     SCREEN_HEIGHT - GRID_SIZE)
 
         new_head = self.get_head_position()
         new_head_list = list(new_head)
@@ -136,7 +139,8 @@ class Snake(GameObject):
 
     def reset(self):
         """Сбрасывает настройки змеи после проигрыша."""
-        self.position = ((GRID_WIDTH // 2) * GRID_SIZE, (GRID_HEIGHT // 2) * GRID_SIZE)
+        self.position = ((GRID_WIDTH // 2) * GRID_SIZE,
+                         (GRID_HEIGHT // 2) * GRID_SIZE)
         self.direction = RIGHT
         self.positions = [self.position]
         self.next_direction = None
